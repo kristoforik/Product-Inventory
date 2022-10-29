@@ -23,8 +23,11 @@ def simulating(self):
             total_manufactured += manufactured
             self.pstock = left_in_stock
             n += 1
-        print(total_manufactured)
-        print(total_sold)
+        net = (total_sold * price) - (total_manufactured * man_cost)
+        net1 = round(net, 2)
+        print('Units manufactured:',total_manufactured)
+        print('Units sold:', total_sold)
+        print('Net Profit:', net1, 'CAD')
         
 class Product:
     def __init__(self, code, name, price, mancost, stock, monthlyman):
@@ -43,7 +46,7 @@ class Product:
         print(' In Stock:\033[92m', self.pstock, '\u001b[0munits')
         print(' Monthly Production:\033[92m', self.pmonthlyman, '\u001b[0munits')
         print("-------------------------------------------------")
-
+        simulating(self)
         
         '''n = selling_simulator(self.pmonthlyman)
         res = (self.pstock + self.pmonthlyman) - n
@@ -63,8 +66,8 @@ class Application:
         pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0
         return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
 product1 = Application()
-product2 = Product(100, 'BALL', 50, 20, 100, 100)
-simulating(product2)
-'''start = ("Enter [1] to create a product: ")
+product2 = Product(100, 'BALL', 49.99, 19.99, 100, 100)
+product1.creating()
+'''start = ("Type [1] to create a product: ")
 if start == 1:
     product1.creating()'''
