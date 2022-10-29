@@ -73,12 +73,12 @@ class Application1:
                 pcode = (input("Enter the product code: "))#100-1000
                 return pcode
             def getName():
-                pname = (input("Enter the product name: "))#
+                iname = (input("Enter the product name: "))
+                pname = iname
                 for i in pname:
-                    '''while ord(i) < 65 or ord(i) > 90 and ord(i) < 97 or ord(i) > 122:
-                        pname = (input("Enter the valid product code: "))
-                    return pname'''
-                    print(i)
+                    #while ord(i) < 65 or ord(i) > 90 and ord(i) < 97 or ord(i) > 122:
+                    while ord(i)<80:
+                        print('cool')
             '''pprice = float(input("Enter the product sale price: "))#Real number>0
             
             pmancost = float(input("Enter the product manufacture cost: "))#Real number>0
