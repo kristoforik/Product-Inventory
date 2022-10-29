@@ -1,4 +1,23 @@
+import random
+def selling_simulator(number):
+        minim = number - 10
+        maxim = number + 10
+        production = random.randint(minim, maxim)
+        return production
 
+def simulating(self):
+        n = 1
+        while n < 13:
+            manufactured = self.pmonthlyman
+            sold = selling_simulator(self.pmonthlyman)
+            left_in_stock = (self.pstock + self.pmonthlyman) - sold
+            print("Month", n, ':')
+            print("     Manufactured:", manufactured, 'units')
+            print("     Sold:", sold, 'units')
+            print("     Stock:", left_in_stock, 'units')
+            self.pstock = left_in_stock
+            n += 1
+        
 class Product:
     def __init__(self, code, name, price, mancost, stock, monthlyman):
         self.pcode = code
@@ -16,6 +35,15 @@ class Product:
         print(' In Stock:\033[92m', self.pstock, '\u001b[0munits')
         print(' Monthly Production:\033[92m', self.pmonthlyman, '\u001b[0munits')
         print("-------------------------------------------------")
+
+        
+        '''n = selling_simulator(self.pmonthlyman)
+        res = (self.pstock + self.pmonthlyman) - n
+        print(self.pstock)
+        print(self.pmonthlyman)
+        print(n)
+        print(res)'''
+
         return "-------------------------------------------------"
 class Application:
     def creating(self):
@@ -27,4 +55,8 @@ class Application:
         pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0
         return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
 product1 = Application()
-product1.creating()
+product2 = Product(100, 'BALL', 50, 20, 100, 100)
+simulating(product2)
+'''start = ("Enter [1] to create a product: ")
+if start == 1:
+    product1.creating()'''
