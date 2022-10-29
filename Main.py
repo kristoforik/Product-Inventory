@@ -6,6 +6,10 @@ def selling_simulator(number):
         return production
 
 def simulating(self):
+        total_sold = 0
+        price = self.pprice
+        total_manufactured = 0
+        man_cost = self.pmancost
         n = 1
         while n < 13:
             manufactured = self.pmonthlyman
@@ -15,8 +19,12 @@ def simulating(self):
             print("     Manufactured:", manufactured, 'units')
             print("     Sold:", sold, 'units')
             print("     Stock:", left_in_stock, 'units')
+            total_sold += sold
+            total_manufactured += manufactured
             self.pstock = left_in_stock
             n += 1
+        print(total_manufactured)
+        print(total_sold)
         
 class Product:
     def __init__(self, code, name, price, mancost, stock, monthlyman):
