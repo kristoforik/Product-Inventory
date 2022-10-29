@@ -58,16 +58,51 @@ class Product:
         return "-------------------------------------------------"
 class Application:
     def creating(self):
-        pcode = int(input("\u001b[0mEnter the product code: "))#100-1000
-        pname = str(input("Enter the product name: "))#name
-        pprice = float(input("Enter the product sale price: "))#Real number>0
-        pmancost = float(input("Enter the product manufacture cost: "))#Real number>0
-        pstock = int(input("Enter the product stock level: "))#int>0
-        pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0
-        return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
-product1 = Application()
+            pcode = int(input("\u001b[0mEnter the product code: "))#100-1000
+            pname = (input("Enter the product name: "))#name
+            pprice = float(input("Enter the product sale price: "))#Real number>0
+            pmancost = float(input("Enter the product manufacture cost: "))#Real number>0
+            pstock = int(input("Enter the product stock level: "))#int>0
+            pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0
+            return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
+
+
+class Application1:
+    def creating(self):
+            def getCode():
+                pcode = (input("Enter the product code: "))#100-1000
+                return pcode
+            def getName():
+                pname = (input("Enter the product name: "))#
+                for i in pname:
+                    '''while ord(i) < 65 or ord(i) > 90 and ord(i) < 97 or ord(i) > 122:
+                        pname = (input("Enter the valid product code: "))
+                    return pname'''
+                    print(i)
+            '''pprice = float(input("Enter the product sale price: "))#Real number>0
+            
+            pmancost = float(input("Enter the product manufacture cost: "))#Real number>0
+            
+            pstock = int(input("Enter the product stock level: "))#int>0
+            
+            pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0'''
+            getCode()
+            getName()
+            #return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
+
+
+
+
+product1 = Application1()
 product2 = Product(100, 'BALL', 49.99, 19.99, 100, 100)
 product1.creating()
 '''start = ("Type [1] to create a product: ")
 if start == 1:
     product1.creating()'''
+#pcode = (input("Enter the product code: "))
+'''for i in pname:
+                if ord(i) > 64 and ord(i) < 91 or ord(i) > 96 and ord(i) < 123:
+                    continue
+                else:
+                    return False'''
+
