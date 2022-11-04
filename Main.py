@@ -102,7 +102,7 @@ class Product:
         return "-------------------------------------------------"
 class Application:
     def creating(self):
-            pcode = (input("Enter the product code: "))#100-1000
+            pcode = (input("\nEnter the product code: "))#100-1000
             pcode = int(check_code(pcode))
             pname = (input("Enter the product name: "))#name
             pname = str(check_name(pname))
@@ -119,7 +119,7 @@ class Application:
 product1 = Application()
 print_slow("--Welcome To Programming Principles Sample Product Inventory--\n")
 time.sleep(1)
-start = int(input(("Type [1] to create a product: \n")))
+start = int(input(("Type [1] to create a product: ")))
 if start == 1:
     product1.creating()
 
