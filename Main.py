@@ -8,7 +8,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.1)
+        time.sleep(0.08)
 def simulating(self):
         total_sold = 0
         price = self.pprice
@@ -33,6 +33,46 @@ def simulating(self):
         print('\u001b[0m\033[1mUnits sold:\033[96m', total_sold, 'units')
         print('\u001b[0m\033[1mNet Profit:\033[92m', net1, 'CAD\u001b[0m')
         
+def check_code(code):
+    tcode = str(code)
+    chcode = tcode
+    while chcode.isnumeric() == False:
+        chcode = (input("Enter a valid code: "))
+    return chcode
+def check_stock(stock):
+    tstock = str(stock)
+    chstock = tstock
+    while chstock.isnumeric() == False:
+        chstock = (input("Enter a valid number of units in stock: "))
+    return chstock
+def check_monthlyman(monman):
+    tcode = str(monman)
+    chcode = tcode
+    while chcode.isnumeric() == False:
+        chcode = (input("Enter a valid number of estimated monthly units manufactured: "))
+    return chcode
+def check_name(name):
+    chname = str(name)
+    while chname.isalpha() == False:
+        chname = input("Enter a valid product name: ")
+    return chname
+def check_price(price):
+    chprice = price
+    while True:
+        try:
+            float(chprice)
+            return chprice
+        except ValueError:
+            chprice = input("Enter a valid product price: ")
+def check_cost(cost):
+    chcost = cost
+    while True:
+        try:
+            float(chcost)
+            return chcost
+        except ValueError:
+            chcost = input("Enter a valid manufacture cost: ")
+
 class Product:
     def __init__(self, code, name, price, mancost, stock, monthlyman):
         self.pcode = code
@@ -62,46 +102,24 @@ class Product:
         return "-------------------------------------------------"
 class Application:
     def creating(self):
-            pcode = int(input("\u001b[0m\nEnter the product code: "))#100-1000
+            pcode = (input("Enter the product code: "))#100-1000
+            pcode = int(check_code(pcode))
             pname = (input("Enter the product name: "))#name
-            pprice = float(input("Enter the product sale price: "))#Real number>0
-            pmancost = float(input("Enter the product manufacture cost: "))#Real number>0
-            pstock = int(input("Enter the product stock level: "))#int>0
-            pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0
-            return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
-
-
-'''class Application1:
-    def creating(self):
-            def getCode():
-                pcode = (input("Enter the product code: "))#100-1000
-                return pcode
-            def getName():
-                iname = (input("Enter the product name: "))
-                pname = iname
-                for i in pname:
-                    #while ord(i) < 65 or ord(i) > 90 and ord(i) < 97 or ord(i) > 122:
-                    while ord(i)<80:
-                        print('cool')
-            pprice = float(input("Enter the product sale price: "))#Real number>0
-            
-            pmancost = float(input("Enter the product manufacture cost: "))#Real number>0
-            
-            pstock = int(input("Enter the product stock level: "))#int>0
-            
-            pmonthlpyman = int(input("Enter the estimated monthly units manufactured: "))#int>=0
-            getCode()
-            getName()'''
-            #return Product(pcode, pname, pprice, pmancost, pstock, pmonthlpyman).description()
-
-
-
+            pname = str(check_name(pname))
+            pprice = (input("Enter the product sale price: "))#Real number>0
+            pprice = float(check_price(pprice))
+            pmancost = (input("Enter the product manufacture cost: "))#Real number>0
+            pmancost = float(check_cost(pmancost))
+            pstock = (input("Enter the product stock level: "))#int>0
+            pstock = int(check_stock(pstock))
+            pmonthlyman = (input("Enter the estimated monthly units manufactured: "))#int>=0
+            pmonthlyman = int(check_monthlyman(pmonthlyman))
+            return Product(pcode, pname, pprice, pmancost, pstock, pmonthlyman).description()
 
 product1 = Application()
-product2 = Product(100, 'BALL', 49.99, 19.99, 100, 100)
 print_slow("--Welcome To Programming Principles Sample Product Inventory--\n")
 time.sleep(1)
-start = int(input(("Type [1] to create a product: ")))
+start = int(input(("Type [1] to create a product: \n")))
 if start == 1:
     product1.creating()
 
